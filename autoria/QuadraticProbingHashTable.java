@@ -11,9 +11,8 @@ public class QuadraticProbingHashTable implements HashTable {
     }
 
     private int funcaoHash(String codigo) {
-        // Função hash polinomial (método de Horner)
         int hash = 0;
-        int p = 31; // primo pequeno
+        int p = 31;
         for (int i = 0; i < codigo.length(); i++) {
             hash = (hash * p + (codigo.charAt(i) - '0')) & 0x7FFFFFFF;
         }
@@ -21,8 +20,6 @@ public class QuadraticProbingHashTable implements HashTable {
     }
 
     private int rehashQuadratico(int indice, int tentativa) {
-        // i = (h(k) + c1 * i + c2 * i²) mod m
-        // Usando c1 = 1, c2 = 1 (valores comuns)
         return (indice + tentativa + tentativa * tentativa) % tabela.length;
     }
 
@@ -33,7 +30,7 @@ public class QuadraticProbingHashTable implements HashTable {
 
         while (tabela[indice] != null && tabela[indice] != DELETED && tentativas < tabela.length) {
             if (tabela[indice].equals(registro)) {
-                return; // Elemento já existe
+                return;
             }
             colisoes++;
             tentativas++;
@@ -121,7 +118,6 @@ public class QuadraticProbingHashTable implements HashTable {
             System.out.println("Sem gaps para calcular");
         }
 
-        // Estatística específica do Quadratic: sequência de probes
         System.out.println("Sequência de probes para primeiro elemento:");
         int primeiroIndice = funcaoHash("000000001");
         System.out.print("  " + primeiroIndice);
