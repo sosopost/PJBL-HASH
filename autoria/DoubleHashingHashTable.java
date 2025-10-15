@@ -70,7 +70,6 @@ public class DoubleHashingHashTable implements HashTable {
             }
             indice = indice % tabela.length;
         }
-
         return false;
     }
 
