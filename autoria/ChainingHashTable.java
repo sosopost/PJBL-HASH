@@ -16,7 +16,6 @@ public class ChainingHashTable implements HashTable {
     }
 
     private int funcaoHash(String codigo) {
-        // Função hash por divisão com multiplicação (método mais sofisticado)
         int hash = 0;
         for (int i = 0; i < codigo.length(); i++) {
             hash = (hash * 37 + (codigo.charAt(i) - '0')) & 0x7FFFFFFF;
@@ -27,11 +26,9 @@ public class ChainingHashTable implements HashTable {
     @Override
     public void inserir(Registro registro) {
         int indice = funcaoHash(registro.getCodigo());
-
-        // Conta colisões baseado no critério do trabalho:
-        // Para encontrar posição vazia, cada elemento verificado = 1 colisão
+        
         if (!tabela[indice].isEmpty()) {
-            colisoes += tabela[indice].size(); // Colisões = elementos já na lista
+            colisoes += tabela[indice].size();
         }
 
         if (!tabela[indice].contains(registro)) {
@@ -96,7 +93,6 @@ public class ChainingHashTable implements HashTable {
             System.out.println("  - " + maioresListas.poll() + " elementos");
         }
         
-        // Calcular gaps entre listas não vazias
         int menorGap = Integer.MAX_VALUE;
         int maiorGap = 0;
         long somaGaps = 0;
@@ -126,7 +122,6 @@ public class ChainingHashTable implements HashTable {
         }
     }
     
-    // Métodos para extrair estatísticas para o relatório
     public int getMaiorLista() {
         int maiorLista = 0;
         for (LinkedList<Registro> lista : tabela) {
