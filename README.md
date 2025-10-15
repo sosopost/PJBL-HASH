@@ -147,28 +147,25 @@ O programa irá:
 
 ## Requisitos Atendidos
 
-✅ **3 tamanhos de tabela** (1k, 10k, 100k)  
-✅ **3 tamanhos de dados** (100k, 1M, 10M)  
-✅ **Seed fixa** para reprodutibilidade  
-✅ **Registro com 9 dígitos**  
-✅ **Medição de tempo** (inserção e busca)  
-✅ **Contagem de colisões** (critério específico)  
-✅ **Estatísticas detalhadas** (gaps, maiores listas)  
-✅ **Funções hash diversificadas**  
-✅ **Encadeamento + Rehashing**  
-✅ **Relatórios em CSV e texto**  
-✅ **Análise comparativa**  
-✅ **Código comentado**
+**3 tamanhos de tabela** (1k, 10k, 100k)  
+**3 tamanhos de dados** (100k, 1M, 10M)  
+**Seed fixa** para reprodutibilidade  
+**Registro com 9 dígitos**  
+**Medição de tempo** (inserção e busca)  
+**Contagem de colisões** (critério específico)  
+**Estatísticas detalhadas** (gaps, maiores listas)  
+**Funções hash diversificadas**  
+**Encadeamento + Rehashing**  
+**Relatórios em CSV e texto**  
+**Análise comparativa**  
+**Código comentado**
 
-## Limitações
-
-- Rehashing não testado para fator > 0.75 (evitar overflow)
-- Memória limitada para conjuntos muito grandes
-- Apenas tipos primitivos e estruturas básicas conforme especificado
 
 ## Autores
 
-Projeto desenvolvido como PJBL (Project-Based Learning) para análise de estruturas de dados hash.
-
----
-*Implementação em Java utilizando apenas bibliotecas básicas conforme especificação do trabalho.*
+- Aluna: Sophia Post Ploposki
+- Disciplina: Resolução de Problemas Estruturados em Computação
+- Turma: B
+- Curso: Ciência da Computação
+- Universidade: Pontifícia Universidade Católica do Paraná (PUCPR) 
+- Professor: Andrey Cabral Meira
