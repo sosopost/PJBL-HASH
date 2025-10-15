@@ -24,7 +24,6 @@ public class Main {
     private static void executarTestesCompletos() {
         System.out.println("\nExecutando testes de desempenho...");
 
-        // Testes seguindo os requisitos: 3 tamanhos de tabela x 3 tamanhos de dados
         for (int tamanhoTabela : TAMANHOS_TABELA) {
             for (int tamanhoDados : TAMANHOS_DADOS) {
                 double fatorCarga = (double) tamanhoDados / tamanhoTabela;
@@ -42,10 +41,8 @@ public class Main {
                     continue;
                 }
 
-                // Sempre testar encadeamento (suporta qualquer fator de carga)
                 testarHashTable(new ChainingHashTable(tamanhoTabela), dados, "Encadeamento");
 
-                // Rehashing apenas para fatores <= 0.75 (evitar overflow)
                 if (fatorCarga <= 0.75) {
                     testarHashTable(new LinearProbingHashTable(tamanhoTabela), dados, "Linear-Probing");
                     testarHashTable(new QuadraticProbingHashTable(tamanhoTabela), dados, "Quadratic-Probing");
@@ -66,7 +63,6 @@ public class Main {
                     nome, hashTable.getTamanho(), dados.size()
             );
 
-            // Teste de inserção
             long inicio = System.currentTimeMillis();
             for (Registro registro : dados) {
                 hashTable.inserir(registro);
@@ -74,7 +70,6 @@ public class Main {
             long fim = System.currentTimeMillis();
             resultado.setTempoInsercao(fim - inicio);
 
-            // Teste de busca
             inicio = System.currentTimeMillis();
             for (Registro registro : dados) {
                 hashTable.buscar(registro);
@@ -82,11 +77,9 @@ public class Main {
             fim = System.currentTimeMillis();
             resultado.setTempoBusca(fim - inicio);
 
-            // Coletar métricas básicas
             resultado.setColisoes(hashTable.getColisoes());
             resultado.setFatorCarga(hashTable.getFatorCarga());
             
-            // Coletar estatísticas detalhadas
             resultado.setMaiorLista(hashTable.getMaiorLista());
             List<Integer> tresMaiores = hashTable.getTresMaioresListas();
             List<String> tresMaioresStr = new ArrayList<>();
@@ -100,13 +93,11 @@ public class Main {
             resultado.setMaiorGap(gaps[1]);
             resultado.setMediaGaps(gaps[2]);
 
-            // Exibir resultados parciais
             System.out.println("Tempo inserção: " + resultado.getTempoInsercao() + "ms");
             System.out.println("Tempo busca: " + resultado.getTempoBusca() + "ms");
             System.out.println("Colisões: " + resultado.getColisoes());
             System.out.println("Fator de carga: " + String.format("%.4f", resultado.getFatorCarga()));
 
-            // Coletar estatísticas detalhadas
             hashTable.estatisticas();
 
             todosResultados.add(resultado);
@@ -116,7 +107,6 @@ public class Main {
         }
     }
 
-    // ... (resto dos métodos mantidos iguais: gerarDados, carregarDados, exportarResultados, gerarRelatorio)
     private static void gerarDados() {
         System.out.println("Gerando conjuntos de dados...");
         Random random = new Random(12345);
@@ -227,7 +217,6 @@ public class Main {
             writer.println("ANÁLISE DETALHADA:");
             writer.println("-".repeat(40));
             
-            // Encontrar melhor desempenho por categoria
             ResultadoExperimento melhorInsercao = todosResultados.stream()
                 .min((a, b) -> Long.compare(a.getTempoInsercao(), b.getTempoInsercao()))
                 .orElse(null);
