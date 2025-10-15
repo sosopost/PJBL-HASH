@@ -30,7 +30,6 @@ public class ChainingHashTable implements HashTable {
         if (!tabela[indice].isEmpty()) {
             colisoes += tabela[indice].size();
         }
-
         if (!tabela[indice].contains(registro)) {
             tabela[indice].add(registro);
             tamanho++;
