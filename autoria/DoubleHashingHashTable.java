@@ -10,7 +10,6 @@ public class DoubleHashingHashTable implements HashTable {
     }
 
     private int hash1(String codigo) {
-        // Primeira função hash: método da divisão simples
         int hash = 0;
         for (int i = 0; i < codigo.length(); i++) {
             hash = (hash + (codigo.charAt(i) - '0')) & 0x7FFFFFFF;
@@ -19,8 +18,6 @@ public class DoubleHashingHashTable implements HashTable {
     }
 
     private int hash2(String codigo) {
-        // Segunda função hash: importante que seja diferente e não dê 0
-        // Usando um primo menor que o tamanho da tabela
         int hash = 1;
         for (int i = 0; i < codigo.length(); i++) {
             hash = (hash * 7 + (codigo.charAt(i) - '0')) & 0x7FFFFFFF;
