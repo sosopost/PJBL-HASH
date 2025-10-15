@@ -1,0 +1,8 @@
+RELATÓRIO DETALHADO - EXPERIMENTOS TABELAS HASH
+================================================================================
+
+ResultadoExperimento@443b7951
+Maior lista: 0
+Gaps - Menor: 0, Maior: 0, Média: 0,00
+3 maiores listas: []
+------------------------------------------------------------

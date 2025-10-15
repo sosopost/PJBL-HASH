@@ -1,0 +1,16 @@
+ANÁLISE COMPARATIVA - DESEMPENHO DAS TABELAS HASH
+================================================================================
+
+ENCADEAMENTO:
+----------------------------------------
+  Tabela      0 | Dados  100000 | Ins:   86ms | Busca:   66ms | Colisões:   98976 | Fator: 1,00
+
+CONCLUSÕES:
+----------------------------------------
+1. Encadeamento: Melhor para fatores de carga altos (> 1.0)
+2. Linear Probing: Simples mas sujeito a agrupamento primário
+3. Quadratic Probing: Evita agrupamento primário, mas pode ter agrupamento secundário
+4. Double Hashing: Menos colisões, distribuição mais uniforme
+5. Fator de carga ideal:
+   - Rehashing: 0.5 - 0.75
+   - Encadeamento: 1.0 - 3.0
