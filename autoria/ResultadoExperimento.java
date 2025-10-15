@@ -20,7 +20,6 @@ public class ResultadoExperimento {
         this.tresMaioresListas = new ArrayList<>();
     }
 
-    // Getters e Setters
     public String getTipoHash() { return tipoHash; }
     public int getTamanhoTabela() { return tamanhoTabela; }
     public int getTamanhoDados() { return tamanhoDados; }
