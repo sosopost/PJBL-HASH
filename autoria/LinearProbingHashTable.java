@@ -11,9 +11,8 @@ public class LinearProbingHashTable implements HashTable {
     }
 
     private int funcaoHash(String codigo) {
-        // Função hash multiplicativa (método de Knuth)
         long hash = 0;
-        long A = 2654435761L; // (sqrt(5) - 1) / 2 * 2^32
+        long A = 2654435761L;
         for (int i = 0; i < codigo.length(); i++) {
             hash = hash * A + (codigo.charAt(i) - '0');
         }
